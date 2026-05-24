@@ -3,12 +3,6 @@ title: "Main Functions"
 format: html
 ---
 
-## Overview
-
-"Plarrr" provides shortcut functions for wrangling the TidyTuesday plastic
-waste dataset into ready-to-plot and ready-to-table formats, cutting out
-repetitive dplyr pipelines for the most common summaries and visualizations.
-
 ```{r}
 library(Plarrr)
 plastics <- load_data()
