@@ -1,0 +1,49 @@
+---
+title: "Main Functions"
+format: html
+---
+
+## Overview
+
+"Plarrr" provides shortcut functions for wrangling the TidyTuesday plastic
+waste dataset into ready-to-plot and ready-to-table formats, cutting out
+repetitive dplyr pipelines for the most common summaries and visualizations.
+
+```{r}
+library(Plarrr)
+plastics <- load_data()
+```
+
+## Planned Functions
+
+### 1. Summarize top plastic-producing companies by country
+
+```{r}
+summarize_top_companies(plastics, country = "United States", year = 2020, top_n = 5)
+```
+
+Filters to a given country and year, groups by "parent_company", sums
+"grand_total", and returns a ranked table of the top offending companies.
+Removes filler entries like "Grand Total" and "Unbranded" automatically.
+
+### 2. Plot country-level plastic waste by year
+
+```{r}
+plot_country_trend(plastics, countries = c("China", "Philippines", "Nigeria"))
+```
+
+Produces a ggplot2 grouped bar chart comparing "grand_total" plastic waste
+collected in 2019 vs 2020 for one or more countries side by side. Handles
+filtering, grouping, and themes automatically so you just include a character
+vector of country names or just a single country name.
+
+### 3. Summarize plastic type breakdown across all countries
+
+```{r}
+summarize_plastic_types(plastics, year = 2020)
+```
+
+Pivots the seven plastic type columns (hdpe, ldpe, o, pet, pp, ps, pvc) to a
+long data frame, sums each type globally for either 2019 or 2020, and
+returns a two-column table of plastic type and total count. Automatically
+removes filler rows like "Grand Total" and "Unbranded" as well.
