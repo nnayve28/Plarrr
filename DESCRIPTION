@@ -1,5 +1,5 @@
 Package: Plarrr
-Title: What the Package Does (One Line, Title Case)
+Title: Data Wrangling for Plastic Waste Data Visualization
 Version: 0.0.0.9000
 Authors@R: c(
     person("Nathan", "Lee", email = "nlee174@calpoly.edu", role = c("aut")),
